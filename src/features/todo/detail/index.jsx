@@ -124,7 +124,7 @@ export default function DetailTodo({ isComplete, data }) {
           style={{ textDecoration: isComplete ? "line-through" : "unset" }}
           className="text-lg text-gray-600"
         >
-          {title ?? ""}
+          {title.slice(0, 18) ?? ""}...
         </p>
       </div>
     </>
