@@ -42,8 +42,10 @@ export const todoSlice = createSlice({
       state.fullData[idx].title = action.payload.title
       state.fullData[idx].description = action.payload.desc
     },
-    delete: () => {
-      // let data
+    deleteTodo: (state, action) => {
+      let newData = state.fullData.filter(item => item.id !== action.payload.id)
+
+      state.fullData = newData
     },
     toCompleted: (state, action) => {
       let idx = state.fullData.findIndex(item => item.id === action.payload.id)
@@ -66,12 +68,10 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { create, update, toCompleted, toUnCompleted } = todoSlice.actions;
+export const { create, update, deleteTodo, toCompleted, toUnCompleted } = todoSlice.actions;
 
 export const dataTodo = createSelector(
   (state) => ({
-     onProgress: state.todo.onProgressTodos,
-     onComplete: state.todo.completedTodos,
      status: state.todo.status,
      fullData: state.todo.fullData
   }), (state) =>  state

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ModalPrimary } from "../../../components/modal";
 import { useDispatch } from "react-redux";
-import { update } from "../todoSlice";
+import { update, deleteTodo} from "../todoSlice";
 
 export default function DetailTodo({ isComplete, data }) {
   const dispatch = useDispatch();
@@ -24,6 +24,11 @@ export default function DetailTodo({ isComplete, data }) {
 
     dispatch(update({ title, desc, id, status }));
     setisUpdate(false);
+    setmodalOpen(false);
+  }
+
+  function onDelete() {
+    dispatch(deleteTodo({id}))
     setmodalOpen(false);
   }
   return (
@@ -103,6 +108,7 @@ export default function DetailTodo({ isComplete, data }) {
                 {status === 1 ? null : (
                   <button
                     type="button"
+                    onClick={() => onDelete()}
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-100 border border-transparent rounded-md hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
                   >
                     Delete
