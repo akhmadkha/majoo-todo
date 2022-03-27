@@ -93,7 +93,7 @@ export default function DetailTodo({ isComplete, data }) {
                   <p className="text-md">{title}</p>
                 </div>
                 <div className="">
-                  <p className="text-sm text-gray-500">Judul</p>
+                  <p className="text-sm text-gray-500">Deskripsi</p>
                   <p className="text-md">{description}</p>
                 </div>
               </div>
