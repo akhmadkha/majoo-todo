@@ -2,7 +2,8 @@ import React from 'react';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import './styles/style.css'
-// import Home from './pages/home';
+import 'boxicons'
+import Home from './pages/home';
 
 function App() {
   return (
@@ -54,7 +55,7 @@ function App() {
     //   </header>
     // </div>
     <div className='w-full'>
-      {/* <Home/> */}
+      <Home/>
     </div>
   );
 }
